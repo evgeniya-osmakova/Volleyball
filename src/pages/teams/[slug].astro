@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { clubName, teamCards, type TeamCard } from '../../data/site';
+
+export function getStaticPaths() {
+  return teamCards.map((team) => ({
+    params: { slug: team.slug },
+    props: { team }
+  }));
+}
+
+interface Props {
+  team: TeamCard;
+}
+
+const { team } = Astro.props as Props;
+---
+
+<BaseLayout title={`${team.name} | Saarower VSV`} description={`${team.name} beim ${clubName}`}>
+  <section class={`team-page team-page--${team.accent}`}>
+    <div class="shell team-page__inner">
+      <div class="team-page__hero">
+        <p class="section-tag">Team</p>
+        <h1>{team.name}</h1>
+        <p>{team.description}</p>
+      </div>
+
+      <div class="team-page__grid">
+        <article class="team-page__card">
+          <p class="team-page__card-label">Trainingszeiten</p>
+          <ul class="team-page__schedule">
+            {team.schedule.map((entry) => <li>{entry}</li>)}
+          </ul>
+        </article>
+
+        <article class="team-page__card">
+          <p class="team-page__card-label">Trainer / Ansprechpartner</p>
+          <p class="team-page__contact-name">{team.contactName}</p>
+        </article>
+
+        <article class="team-page__card">
+          <p class="team-page__card-label">Teamseite</p>
+          <p>Diese Seite wird aktuell aufgebaut. Weitere Informationen zum Team folgen hier im nächsten Schritt.</p>
+          <a class="training-row__link team-page__back" href="/#teams">Zurück zu den Teams</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

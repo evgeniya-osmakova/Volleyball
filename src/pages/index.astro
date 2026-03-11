@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { clubName, featureCards, teamCards } from '../data/site';
+---
+
+<BaseLayout title="Saarower VSV" description={clubName}>
+  <section class="home-canvas">
+    <div class="shell">
+      <div class="home-canvas__inner">
+        <section class="hero-stage" id="verein">
+          <figure class="hero-stage__poster">
+            <img src="/images/home/hero-team.jpg" alt="Mannschaftsfoto des Saarower VSV" />
+          </figure>
+
+          <div class="hero-stage__body" id="probetraining">
+            <h1>Willkommen beim Volleyballverein</h1>
+            <a class="button hero-stage__cta" href="#teams">Probetraining</a>
+          </div>
+        </section>
+
+        <section class="training-ribbon" id="teams">
+          <div class="section-head">
+            <p class="section-tag">Trainingszeiten</p>
+            <h2>Unsere Teams</h2>
+          </div>
+
+          <div class="training-ribbon__board">
+            {
+              teamCards.map((team) => (
+                <article class={`training-row training-row--${team.accent}`}>
+                  <div class="training-row__headline">
+                    <p class="training-row__name">{team.name}</p>
+                    <p class="training-row__description">{team.description}</p>
+                    <div class="training-row__contact">
+                      <p class="training-row__contact-label">
+                        <span>Trainer / Ansprechpartner</span>
+                      </p>
+                      <p class="training-row__contact-name">{team.contactName}</p>
+                    </div>
+                  </div>
+
+                  <div class="training-row__aside">
+                    <ul class="training-row__schedule">
+                      {team.schedule.map((entry) => <li>{entry}</li>)}
+                    </ul>
+
+                    <a class="training-row__link" href={`/teams/${team.slug}`}>
+                      Details zum Team
+                    </a>
+                  </div>
+
+                  <div class="training-row__mark" aria-hidden="true"></div>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+
+        <section class="storyline">
+          <div class="section-head section-head--compact">
+            <h2>Mehr vom Saarower VSV</h2>
+          </div>
+
+          <div class="storyline__chapters">
+            {
+              featureCards.map((card, index) => (
+                <article
+                  class={`story-chapter story-chapter--${card.accent} ${index % 2 === 1 ? 'story-chapter--reverse' : ''}`}
+                  id={card.id}
+                >
+                  <div class="story-chapter__media">
+                    <img src={card.image} alt={card.imageAlt} />
+                    <div class="story-chapter__overlay" aria-hidden="true">
+                      {card.label}
+                    </div>
+                  </div>
+
+                  <div class="story-chapter__copy">
+                    <p class="section-tag">{card.label}</p>
+                    <h2>{card.title}</h2>
+                    <p>{card.text}</p>
+
+                    {card.actionLabel && card.actionHref && (
+                      <a
+                        class="story-chapter__link"
+                        href={card.actionHref}
+                        target={card.external ? '_blank' : undefined}
+                        rel={card.external ? 'noreferrer' : undefined}
+                      >
+                        {card.actionLabel}
+                      </a>
+                    )}
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

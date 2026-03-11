@@ -1,0 +1,27 @@
+---
+import { clubName, impressumSections } from '../data/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Impressum | Saarower VSV" description={clubName}>
+  <section class="legal-page">
+    <div class="shell legal-page__inner">
+      <div class="legal-intro">
+        <p class="section-tag">Impressum</p>
+        <h1>Impressum</h1>
+        <p>{clubName}</p>
+      </div>
+
+      <div class="legal-grid">
+        {
+          impressumSections.map((section) => (
+            <article class="legal-card">
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

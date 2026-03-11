@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1246 1264" role="img" aria-labelledby="title desc">
+  <title id="title">Volleyball splash mark</title>
+  <desc id="desc">Black ink splash with a white volleyball drawn in negative space.</desc>
+
+  <g fill="#000">
+    <circle cx="624" cy="656" r="380" />
+    <ellipse cx="426" cy="716" rx="176" ry="258" transform="rotate(-18 426 716)" />
+    <ellipse cx="842" cy="648" rx="220" ry="260" transform="rotate(18 842 648)" />
+    <ellipse cx="624" cy="404" rx="236" ry="122" transform="rotate(-6 624 404)" />
+    <ellipse cx="616" cy="944" rx="250" ry="122" transform="rotate(4 616 944)" />
+    <ellipse cx="292" cy="790" rx="158" ry="72" transform="rotate(32 292 790)" />
+    <ellipse cx="1040" cy="784" rx="156" ry="72" transform="rotate(-26 1040 784)" />
+    <ellipse cx="290" cy="570" rx="98" ry="58" transform="rotate(-28 290 570)" />
+    <ellipse cx="980" cy="516" rx="104" ry="62" transform="rotate(18 980 516)" />
+    <ellipse cx="668" cy="176" rx="24" ry="86" transform="rotate(22 668 176)" />
+    <ellipse cx="748" cy="318" rx="18" ry="48" transform="rotate(-28 748 318)" />
+    <ellipse cx="228" cy="650" rx="44" ry="100" transform="rotate(-52 228 650)" />
+    <ellipse cx="1050" cy="900" rx="46" ry="104" transform="rotate(-32 1050 900)" />
+    <ellipse cx="906" cy="1092" rx="52" ry="116" transform="rotate(-38 906 1092)" />
+    <ellipse cx="272" cy="1036" rx="38" ry="84" transform="rotate(18 272 1036)" />
+    <ellipse cx="1084" cy="652" rx="40" ry="84" transform="rotate(10 1084 652)" />
+    <ellipse cx="162" cy="760" rx="30" ry="54" transform="rotate(-6 162 760)" />
+    <ellipse cx="1118" cy="830" rx="36" ry="64" transform="rotate(18 1118 830)" />
+
+    <circle cx="495" cy="302" r="12" />
+    <circle cx="755" cy="252" r="14" />
+    <circle cx="912" cy="292" r="16" />
+    <circle cx="968" cy="318" r="20" />
+    <circle cx="1034" cy="306" r="18" />
+    <circle cx="1170" cy="366" r="16" />
+    <circle cx="1056" cy="398" r="10" />
+    <circle cx="1206" cy="484" r="12" />
+    <circle cx="230" cy="420" r="14" />
+    <circle cx="182" cy="558" r="14" />
+    <circle cx="205" cy="676" r="8" />
+    <circle cx="144" cy="724" r="6" />
+    <circle cx="104" cy="936" r="15" />
+    <circle cx="214" cy="1044" r="12" />
+    <circle cx="388" cy="1074" r="14" />
+    <circle cx="576" cy="1116" r="12" />
+    <circle cx="676" cy="1122" r="22" />
+    <circle cx="988" cy="1070" r="18" />
+    <circle cx="1078" cy="1114" r="12" />
+    <circle cx="1160" cy="1126" r="10" />
+    <circle cx="1094" cy="536" r="6" />
+    <circle cx="1108" cy="602" r="8" />
+    <circle cx="1126" cy="934" r="6" />
+    <circle cx="1168" cy="838" r="8" />
+    <circle cx="798" cy="274" r="8" />
+    <circle cx="694" cy="310" r="6" />
+    <circle cx="323" cy="374" r="6" />
+    <circle cx="100" cy="594" r="5" />
+    <circle cx="366" cy="956" r="6" />
+    <circle cx="798" cy="1192" r="5" />
+    <circle cx="1184" cy="906" r="7" />
+    <circle cx="1088" cy="1194" r="5" />
+    <circle cx="145" cy="828" r="5" />
+    <circle cx="1022" cy="560" r="6" />
+    <circle cx="1040" cy="396" r="4" />
+    <circle cx="1082" cy="292" r="4" />
+
+    <ellipse cx="232" cy="324" rx="20" ry="6" transform="rotate(-4 232 324)" />
+    <ellipse cx="318" cy="508" rx="24" ry="12" transform="rotate(46 318 508)" />
+    <ellipse cx="334" cy="398" rx="14" ry="12" transform="rotate(14 334 398)" />
+    <ellipse cx="212" cy="666" rx="14" ry="10" transform="rotate(-24 212 666)" />
+    <ellipse cx="368" cy="930" rx="22" ry="12" transform="rotate(-10 368 930)" />
+    <ellipse cx="1178" cy="804" rx="22" ry="10" transform="rotate(-28 1178 804)" />
+    <ellipse cx="1090" cy="886" rx="24" ry="12" transform="rotate(6 1090 886)" />
+    <ellipse cx="1120" cy="1098" rx="14" ry="24" transform="rotate(20 1120 1098)" />
+    <ellipse cx="934" cy="1146" rx="18" ry="28" transform="rotate(-24 934 1146)" />
+    <ellipse cx="180" cy="784" rx="22" ry="28" transform="rotate(-8 180 784)" />
+    <ellipse cx="312" cy="116" rx="10" ry="4" transform="rotate(-8 312 116)" />
+  </g>
+
+  <defs>
+    <clipPath id="ball-clip">
+      <circle cx="622" cy="664" r="322" />
+    </clipPath>
+  </defs>
+
+  <circle cx="622" cy="664" r="322" fill="#fff" />
+
+  <g clip-path="url(#ball-clip)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="42">
+    <path d="M382 552C470 454 572 398 704 366" />
+    <path d="M526 354C444 480 404 642 434 822" />
+    <path d="M764 366C632 442 524 566 448 742" />
+    <path d="M324 688C470 518 684 500 908 610" />
+    <path d="M390 824C550 930 762 952 922 858" />
+    <path d="M944 422C806 446 640 560 548 720" />
+    <path d="M980 546C1016 688 1000 842 924 982" />
+  </g>
+</svg>

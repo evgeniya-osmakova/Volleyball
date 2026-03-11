@@ -1,0 +1,151 @@
+---
+import '../styles/global.css';
+import { clubName, footerCards, navigation } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Saarower VSV',
+  description = 'Der Saarower Volleyball Sportverein e.V.'
+} = Astro.props;
+
+const splitIndex = Math.floor(navigation.length / 2);
+const navigationLeft = navigation.slice(0, splitIndex);
+const navigationRight = navigation.slice(splitIndex);
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="shell">
+          <nav class="site-header__nav" aria-label="Hauptnavigation">
+            <ul class="site-nav site-nav--left">
+              {
+                navigationLeft.map((item) => (
+                  <li>
+                    <a class="site-nav__link" href={item.href}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+
+            <a class="site-brand" href="/">
+              <img
+                class="site-brand__logo"
+                src="/logo.png"
+                alt={clubName}
+                width="80"
+                height="80"
+              />
+              <span class="site-brand__tagline">Der Saarower Volleyball Sportverein e.V.</span>
+            </a>
+
+            <ul class="site-nav site-nav--right">
+              {
+                navigationRight.map((item) => (
+                  <li>
+                    <a class="site-nav__link" href={item.href}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+
+          <div class="site-header__mobile">
+            <div class="site-header__mobile-bar">
+              <a class="site-brand site-brand--mobile" href="/">
+                <img
+                  class="site-brand__logo"
+                  src="/logo.png"
+                  alt={clubName}
+                  width="80"
+                  height="80"
+                />
+                <span class="site-brand__tagline">Der Saarower Volleyball Sportverein e.V.</span>
+              </a>
+
+              <details class="site-mobile-menu">
+                <summary class="site-mobile-menu__toggle" aria-label="Menü öffnen">
+                  <span class="sr-only">Menü</span>
+                  <span class="site-mobile-menu__icon" aria-hidden="true">
+                    <span></span>
+                  </span>
+                </summary>
+
+                <nav class="site-mobile-menu__panel" aria-label="Mobile Hauptnavigation">
+                  <ul class="site-mobile-menu__list">
+                    {
+                      navigation.map((item) => (
+                        <li>
+                          <a class="site-mobile-menu__link" href={item.href}>
+                            {item.label}
+                          </a>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </nav>
+              </details>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer" id="kontakt">
+        <div class="shell">
+          <section class="footer-banner">
+            <p class="section-tag">Volleyball in Bad Saarow</p>
+            <h2>{clubName}</h2>
+          </section>
+
+          <div class="footer-grid">
+            {
+              footerCards.map((card) => (
+                <article class="footer-card">
+                  <p class="footer-card__title">{card.title}</p>
+                  <ul class="footer-card__list">
+                    {card.items.map((item) => (
+                      <li>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            target={item.href.startsWith('http') ? '_blank' : undefined}
+                            rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <span>{item.label}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
