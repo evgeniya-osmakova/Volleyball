@@ -15,6 +15,12 @@ const {
 const splitIndex = Math.floor(navigation.length / 2);
 const navigationLeft = navigation.slice(0, splitIndex);
 const navigationRight = navigation.slice(splitIndex);
+const socialIcons = {
+  instagram:
+    'M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm9.75 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z',
+  facebook:
+    'M13.675 22v-8.015h2.69l.403-3.124h-3.093V8.866c0-.905.252-1.522 1.549-1.522h1.654V4.549c-.286-.038-1.268-.123-2.41-.123-2.384 0-4.016 1.456-4.016 4.128v2.307H7.75v3.124h2.702V22h3.223Z'
+} as const;
 ---
 
 <!doctype html>
@@ -113,34 +119,52 @@ const navigationRight = navigation.slice(splitIndex);
 
       <footer class="site-footer" id="kontakt">
         <div class="shell">
-          <section class="footer-banner">
-            <p class="section-tag">Volleyball in Bad Saarow</p>
-            <h2>{clubName}</h2>
-          </section>
-
           <div class="footer-grid">
             {
               footerCards.map((card) => (
-                <article class="footer-card">
-                  <p class="footer-card__title">{card.title}</p>
-                  <ul class="footer-card__list">
-                    {card.items.map((item) => (
-                      <li>
-                        {item.href ? (
-                          <a
-                            href={item.href}
-                            target={item.href.startsWith('http') ? '_blank' : undefined}
-                            rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                          >
-                            {item.label}
-                          </a>
-                        ) : (
-                          <span>{item.label}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
+                <section
+                  class:list={['footer-card', `footer-card--${card.id}`]}
+                  aria-label={card.title ?? 'Footer links'}
+                >
+                  {card.title && card.href ? (
+                    <a class="footer-card__title footer-card__title--link" href={card.href}>
+                      {card.title}
+                    </a>
+                  ) : card.title ? (
+                    <p class="footer-card__title">{card.title}</p>
+                  ) : null}
+
+                  {card.items.length > 0 && (
+                    <ul class="footer-card__list">
+                      {card.items.map((item) => (
+                        <li>
+                          {item.href ? (
+                            <a
+                              class="footer-card__link"
+                              href={item.href}
+                              target={item.href.startsWith('http') ? '_blank' : undefined}
+                              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            >
+                              {item.icon && (
+                                <svg
+                                  class="footer-card__icon"
+                                  viewBox="0 0 24 24"
+                                  aria-hidden="true"
+                                  focusable="false"
+                                >
+                                  <path d={socialIcons[item.icon]}></path>
+                                </svg>
+                              )}
+                              <span>{item.label}</span>
+                            </a>
+                          ) : (
+                            <span>{item.label}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
               ))
             }
           </div>

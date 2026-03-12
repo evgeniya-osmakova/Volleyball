@@ -1,5 +1,8 @@
 export const clubName = 'Der Saarower Volleyball Sportverein e.V.';
 export const instagramUrl = 'https://www.instagram.com/saarower_vsv/';
+export const facebookUrl = 'https://www.facebook.com/saarower.vsv/';
+export type SocialIcon = 'instagram' | 'facebook';
+export type FooterCardId = 'contact' | 'hall' | 'social' | 'impressum' | 'privacy';
 
 export interface NavItem {
   label: string;
@@ -31,10 +34,13 @@ export interface FeatureCard {
 export interface FooterCardItem {
   label: string;
   href?: string;
+  icon?: SocialIcon;
 }
 
 export interface FooterCard {
-  title: string;
+  id: FooterCardId;
+  title?: string;
+  href?: string;
   items: FooterCardItem[];
 }
 
@@ -132,10 +138,11 @@ export const featureCards: FeatureCard[] = [
 
 export const footerCards: FooterCard[] = [
   {
+    id: 'contact',
     title: 'Kontakt',
     items: [
       {
-        label: '03361 7699800',
+        label: '+49 3361 7699800',
         href: 'tel:+4933617699800'
       },
       {
@@ -145,20 +152,29 @@ export const footerCards: FooterCard[] = [
     ]
   },
   {
+    id: 'hall',
     title: 'Adresse Halle',
     items: [{ label: 'Pieskower Straße 31, 15526 Bad Saarow' }]
   },
   {
-    title: 'Social Media',
-    items: [{ label: 'Instagram @saarower_vsv', href: instagramUrl }]
+    id: 'social',
+    title: undefined,
+    items: [
+      { label: 'Instagram', href: instagramUrl, icon: 'instagram' },
+      { label: 'Facebook', href: facebookUrl, icon: 'facebook' }
+    ]
   },
   {
+    id: 'impressum',
     title: 'Impressum',
-    items: [{ label: 'Saarower Chaussee 21, 15517 Fürstenwalde', href: '/impressum' }]
+    href: '/impressum',
+    items: []
   },
   {
+    id: 'privacy',
     title: 'Datenschutz',
-    items: [{ label: 'Zur Datenschutzerklärung', href: '/datenschutz' }]
+    href: '/datenschutz',
+    items: []
   }
 ];
 

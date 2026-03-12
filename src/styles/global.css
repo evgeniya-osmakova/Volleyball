@@ -29,6 +29,12 @@
   --header-nav-font-size: 0.88rem;
   --header-nav-font-weight: 400;
   --header-nav-letter-spacing: 0.12em;
+  --footer-background: #e7e7e7;
+  --footer-title-font-size: 1.05rem;
+  --footer-title-font-weight: 500;
+  --footer-text-font-size: 0.94rem;
+  --footer-column-gap: 42px;
+  --footer-row-gap: 28px;
   --font-display: "Gill Sans", "Avenir Next", "Trebuchet MS", sans-serif;
   --font-body: "Avenir Next", "Trebuchet MS", sans-serif;
 }
@@ -277,7 +283,6 @@ li {
 }
 
 .section-tag,
-.footer-card__title,
 .training-row__name {
   font-family: var(--font-display);
   letter-spacing: 0.18em;
@@ -773,9 +778,7 @@ li {
 }
 
 .legal-intro,
-.legal-card,
-.footer-banner,
-.footer-card {
+.legal-card {
   position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.92);
@@ -785,14 +788,11 @@ li {
 }
 
 .legal-intro,
-.legal-card,
-.footer-banner,
-.footer-card {
+.legal-card {
   border-radius: var(--radius-xl);
 }
 
-.legal-intro,
-.footer-banner {
+.legal-intro {
   display: grid;
   gap: 10px;
   padding: 30px 34px;
@@ -802,9 +802,7 @@ li {
 }
 
 .legal-intro::before,
-.legal-card::before,
-.footer-banner::before,
-.footer-card::before {
+.legal-card::before {
   position: absolute;
   inset: 0 auto auto 0;
   width: 100%;
@@ -826,24 +824,35 @@ li {
 }
 
 .site-footer {
-  padding-bottom: 32px;
-}
-
-.footer-banner {
-  margin-bottom: 18px;
+  padding: 58px 0 62px;
+  background: var(--footer-background);
+  border-top: 1px solid rgba(17, 32, 51, 0.08);
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
+  gap: var(--footer-row-gap) var(--footer-column-gap);
+  align-items: start;
 }
 
 .footer-card {
   display: grid;
-  gap: 12px;
-  padding: 24px 20px 22px;
-  border-radius: var(--radius-lg);
+  align-content: start;
+  gap: 14px;
+  min-height: 72px;
+}
+
+.footer-card__title {
+  color: #121212;
+  font-family: var(--font-body);
+  font-size: var(--footer-title-font-size);
+  font-weight: var(--footer-title-font-weight);
+  line-height: 1.2;
+}
+
+.footer-card__title--link {
+  width: fit-content;
 }
 
 .footer-card__list {
@@ -851,9 +860,43 @@ li {
   gap: 8px;
 }
 
-.footer-card a {
+.footer-card__list li,
+.footer-card__link,
+.footer-card__list span {
+  color: rgba(17, 32, 51, 0.76);
+  font-size: var(--footer-text-font-size);
+  line-height: 1.55;
+}
+
+.footer-card__link,
+.footer-card__title--link {
   color: var(--navy);
-  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.14em;
+  transition:
+    color 0.18s ease,
+    text-decoration-color 0.18s ease;
+}
+
+.footer-card__link:hover,
+.footer-card__title--link:hover {
+  color: var(--navy-strong);
+  text-decoration-color: currentColor;
+}
+
+.footer-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+}
+
+.footer-card__icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .team-page {
@@ -983,10 +1026,13 @@ li {
     padding: 0;
   }
 
-  .footer-grid,
   .story-chapter,
   .story-chapter--reverse {
     grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-brand--mobile {
@@ -1073,10 +1119,12 @@ li {
     padding-bottom: 42px;
   }
 
+  .site-footer {
+    padding: 34px 0 36px;
+  }
+
   .legal-intro,
-  .legal-card,
-  .footer-banner,
-  .footer-card {
+  .legal-card {
     padding-left: 0;
     padding-right: 0;
   }
@@ -1117,9 +1165,7 @@ li {
   }
 
   .legal-intro,
-  .legal-card,
-  .footer-banner,
-  .footer-card {
+  .legal-card {
     padding-left: 22px;
     padding-right: 22px;
   }
@@ -1128,7 +1174,62 @@ li {
     min-height: 320px;
   }
 
+  .footer-card {
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .footer-card__title {
+    font-size: 0.98rem;
+  }
+
+  .footer-card__list {
+    gap: 6px;
+  }
+
+  .footer-card__list li,
+  .footer-card__link,
+  .footer-card__list span {
+    font-size: 0.88rem;
+    line-height: 1.38;
+  }
+
+  .footer-card__link {
+    gap: 8px;
+  }
+
+  .footer-card__icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 14px;
+  }
+
+  .footer-card--contact {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .footer-card--hall {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .footer-card--social {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  .footer-card--impressum {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .footer-card--privacy {
+    grid-column: 2;
+    grid-row: 3;
   }
 }

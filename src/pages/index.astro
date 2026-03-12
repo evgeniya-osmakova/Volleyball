@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { clubName, featureCards, teamCards } from '../data/site';
+import { clubName, teamCards } from '../data/site';
 ---
 
 <BaseLayout title="Saarower VSV" description={clubName}>
@@ -50,47 +50,6 @@ import { clubName, featureCards, teamCards } from '../data/site';
                   </div>
 
                   <div class="training-row__mark" aria-hidden="true"></div>
-                </article>
-              ))
-            }
-          </div>
-        </section>
-
-        <section class="storyline">
-          <div class="section-head section-head--compact">
-            <h2>Mehr vom Saarower VSV</h2>
-          </div>
-
-          <div class="storyline__chapters">
-            {
-              featureCards.map((card, index) => (
-                <article
-                  class={`story-chapter story-chapter--${card.accent} ${index % 2 === 1 ? 'story-chapter--reverse' : ''}`}
-                  id={card.id}
-                >
-                  <div class="story-chapter__media">
-                    <img src={card.image} alt={card.imageAlt} />
-                    <div class="story-chapter__overlay" aria-hidden="true">
-                      {card.label}
-                    </div>
-                  </div>
-
-                  <div class="story-chapter__copy">
-                    <p class="section-tag">{card.label}</p>
-                    <h2>{card.title}</h2>
-                    <p>{card.text}</p>
-
-                    {card.actionLabel && card.actionHref && (
-                      <a
-                        class="story-chapter__link"
-                        href={card.actionHref}
-                        target={card.external ? '_blank' : undefined}
-                        rel={card.external ? 'noreferrer' : undefined}
-                      >
-                        {card.actionLabel}
-                      </a>
-                    )}
-                  </div>
                 </article>
               ))
             }
