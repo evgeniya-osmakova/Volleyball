@@ -1,33 +1,36 @@
 ---
-import { privacySections } from '../data/site';
+import { privacyLegacyHtml } from '../data/privacyLegacy';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
   title="Datenschutz | Saarower VSV"
-  description="Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb dieses Onlineangebotes auf."
+  description="Datenschutzerklärung des Saarower Volleyball Sportverein e.V."
 >
-  <section class="legal-page">
-    <div class="shell legal-page__inner">
-      <div class="legal-intro">
-        <p class="section-tag">Datenschutzerklärung</p>
-        <h1>Datenschutz</h1>
-        <p>
-          Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der
-          Verarbeitung von personenbezogenen Daten innerhalb dieses Onlineangebotes und der mit
-          ihm verbundenen Webseiten, Funktionen und Inhalte auf.
-        </p>
-      </div>
+  <section class="home-canvas">
+    <div class="shell">
+      <div class="home-canvas__inner">
+        <section class="hero-stage privacy-page__hero">
+          <div class="hero-stage__body privacy-page__hero-copy">
+            <h1>Datenschutzerklärung</h1>
+          </div>
+        </section>
 
-      <div class="legal-grid">
-        {
-          privacySections.map((section) => (
-            <article class="legal-card">
-              <h2>{section.title}</h2>
-              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-            </article>
-          ))
-        }
+        <section class="privacy-page__section">
+          <div class="subpage-back-row privacy-page__back-row">
+            <a class="subpage-back-link" href="/">&larr; Zurück zur Startseite</a>
+          </div>
+
+          <article class="legal-card privacy-page__card">
+            <div class="privacy-page__content" set:html={privacyLegacyHtml}></div>
+          </article>
+
+          <div class="privacy-page__actions">
+            <a class="button sponsors-section__cta privacy-page__back-link" href="/">
+              Zur Startseite
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   </section>

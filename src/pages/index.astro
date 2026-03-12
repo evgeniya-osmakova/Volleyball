@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { clubName, teamCards } from '../data/site';
+import { clubName, sponsors, teamCards } from '../data/site';
 ---
 
 <BaseLayout title="Saarower VSV" description={clubName}>
@@ -53,6 +53,38 @@ import { clubName, teamCards } from '../data/site';
                 </article>
               ))
             }
+          </div>
+        </section>
+
+        <section class="sponsors-section" id="sponsoren">
+          <div class="section-head sponsors-section__head">
+            <p class="section-tag">Sponsoren</p>
+            <h2 class="sponsors-section__title">Danke an unsere Partner</h2>
+          </div>
+
+          <div class="sponsors-grid">
+            {
+              sponsors.map((sponsor) => (
+                <a
+                  class="sponsor-logo-link"
+                  href={sponsor.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${sponsor.name} Website öffnen`}
+                >
+                  <img
+                    class="sponsor-logo-image"
+                    src={sponsor.logoSrc}
+                    alt={sponsor.logoAlt}
+                    loading="lazy"
+                  />
+                </a>
+              ))
+            }
+          </div>
+
+          <div class="sponsors-section__actions">
+            <a class="button sponsors-section__cta" href="#kontakt">Sponsor werden!</a>
           </div>
         </section>
       </div>

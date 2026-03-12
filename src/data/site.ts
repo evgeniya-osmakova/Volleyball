@@ -31,6 +31,13 @@ export interface FeatureCard {
   external?: boolean;
 }
 
+export interface Sponsor {
+  name: string;
+  href: string;
+  logoSrc: string;
+  logoAlt: string;
+}
+
 export interface FooterCardItem {
   label: string;
   href?: string;
@@ -89,6 +96,63 @@ export const teamCards: TeamCard[] = [
     schedule: ['Mi. 19:00 - 21:00 Uhr'],
     contactName: 'Name folgt',
     accent: 'green'
+  }
+];
+
+export const sponsors: Sponsor[] = [
+  {
+    name: 'EWE',
+    href: 'http://www.ewe.de',
+    logoSrc: '/images/sponsors/ewe.png',
+    logoAlt: 'Logo von EWE'
+  },
+  {
+    name: 'Bauer Fruchtsaft',
+    href: 'http://www.bauer-fruchtsaft.de',
+    logoSrc: '/images/sponsors/bauer.png',
+    logoAlt: 'Logo von Bauer Fruchtsaft'
+  },
+  {
+    name: 'Apotheke am Klinikum | am Kurpark',
+    href: 'http://www.meineapotheke.de/apotheken/apotheke-am-klinikum-bad-saarow-15526/',
+    logoSrc: '/images/sponsors/apotheke.png',
+    logoAlt: 'Logo von Apotheke am Klinikum | am Kurpark'
+  },
+  {
+    name: 'Sparkasse Oder-Spree',
+    href: 'http://www.s-os.de',
+    logoSrc: '/images/sponsors/sparkasse.png',
+    logoAlt: 'Logo von Sparkasse Oder-Spree'
+  },
+  {
+    name: 'Anke Reincke Pflege mit Herz',
+    href: 'http://www.pflegemit-herz.de',
+    logoSrc: '/images/sponsors/anke_reincke_pflege_mit_herz.png',
+    logoAlt: 'Logo von Anke Reincke Pflege mit Herz'
+  },
+  {
+    name: 'dm-drogerie markt',
+    href: 'http://www.dm.de',
+    logoSrc: '/images/sponsors/dm.png',
+    logoAlt: 'Logo von dm-drogerie markt'
+  },
+  {
+    name: 'SWB Beeskow',
+    href: 'http://www.swb-beeskow.de',
+    logoSrc: '/images/sponsors/swb.png',
+    logoAlt: 'Logo von SWB Beeskow'
+  },
+  {
+    name: 'FREiLICH am See',
+    href: 'http://www.freilich.de',
+    logoSrc: '/images/sponsors/freilich.png',
+    logoAlt: 'Logo von FREiLICH am See'
+  },
+  {
+    name: 'ARTPROJEKT',
+    href: 'http://www.artprojekt.de',
+    logoSrc: '/images/sponsors/artprojekt.png',
+    logoAlt: 'Logo von ARTPROJEKT'
   }
 ];
 
@@ -199,99 +263,6 @@ export const impressumSections: LegalSection[] = [
     title: 'Streitbeilegung',
     paragraphs: [
       'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
-    ]
-  }
-];
-
-export const privacySections: LegalSection[] = [
-  {
-    title: 'Einleitung',
-    paragraphs: [
-      'Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und Zweck der Verarbeitung von personenbezogenen Daten innerhalb dieses Onlineangebotes und der mit ihm verbundenen Webseiten, Funktionen und Inhalte auf.'
-    ]
-  },
-  {
-    title: '1. Rechte der Nutzer',
-    paragraphs: [
-      'Nutzer haben das Recht, auf Antrag unentgeltlich Auskunft über die personenbezogenen Daten zu erhalten, die von dem Verantwortlichen über sie gespeichert wurden.',
-      'Zusätzlich haben Nutzer das Recht auf Berichtigung unrichtiger Daten, Einschränkung der Verarbeitung und Löschung ihrer personenbezogenen Daten, auf Datenportabilität sowie im Fall einer unrechtmäßigen Datenverarbeitung auf Beschwerde bei der zuständigen Aufsichtsbehörde.'
-    ]
-  },
-  {
-    title: '2. Widerspruchsrecht',
-    paragraphs: [
-      'Nutzer können der künftigen Verarbeitung ihrer personenbezogenen Daten entsprechend den gesetzlichen Vorgaben jederzeit widersprechen.',
-      'Der Widerspruch kann insbesondere gegen die Verarbeitung für Zwecke der Direktwerbung erfolgen.'
-    ]
-  },
-  {
-    title: '3. Änderungen der Datenschutzerklärung',
-    paragraphs: [
-      'Der Verantwortliche behält sich vor, die Datenschutzerklärung zu ändern, um sie an geänderte Rechtslagen oder bei Änderungen des Dienstes sowie der Datenverarbeitung anzupassen.',
-      'Nutzer werden gebeten, sich regelmäßig über den Inhalt der Datenschutzerklärung zu informieren.'
-    ]
-  },
-  {
-    title: '4. Grundsätzliche Angaben zur Datenverarbeitung und Rechtsgrundlagen',
-    paragraphs: [
-      'Zu den verarbeiteten personenbezogenen Daten können Bestandsdaten, Vertragsdaten, Nutzungsdaten, Meta- und Kommunikationsdaten sowie Inhaltsdaten gehören.',
-      'Die Verarbeitung erfolgt nur bei Vorliegen einer gesetzlichen Erlaubnis, einer Einwilligung oder auf Grundlage berechtigter Interessen nach Art. 6 Abs. 1 lit. f DSGVO.',
-      'Rechtsgrundlagen können Art. 6 Abs. 1 lit. a, b, c und f DSGVO sein.'
-    ]
-  },
-  {
-    title: '5. Sicherheitsmaßnahmen',
-    paragraphs: [
-      'Der Verantwortliche trifft organisatorische, vertragliche und technische Sicherheitsmaßnahmen entsprechend dem Stand der Technik.',
-      'Dazu gehört insbesondere die verschlüsselte Übertragung von Daten zwischen Browser und Server.'
-    ]
-  },
-  {
-    title: '6. Löschung von Daten',
-    paragraphs: [
-      'Gespeicherte Daten werden gelöscht, sobald sie für ihre Zweckbestimmung nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.',
-      'Sofern Daten aus handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen, wird deren Verarbeitung eingeschränkt.'
-    ]
-  },
-  {
-    title: '7. Weitergabe von Daten an Dritte und Drittanbieter',
-    paragraphs: [
-      'Eine Weitergabe an Dritte erfolgt nur auf Grundlage gesetzlicher Erlaubnisse und im Rahmen der gesetzlichen Vorgaben.',
-      'Sofern Inhalte, Werkzeuge oder sonstige Mittel von Drittanbietern eingesetzt werden, kann ein Datentransfer in Drittstaaten stattfinden.'
-    ]
-  },
-  {
-    title: '8. Cookies und Reichweitenmessung',
-    paragraphs: [
-      'Cookies sind Informationen, die von diesem Webserver oder Webservern Dritter an die Webbrowser der Nutzer übertragen und dort für einen späteren Abruf gespeichert werden.',
-      'Soweit nicht anders angegeben, verwendet der Verantwortliche nur Session-Cookies.'
-    ]
-  },
-  {
-    title: '9. Hosting',
-    paragraphs: [
-      'Dieses Onlineangebot wurde durch die webme GmbH, Strassburger Strasse 55, 10405 Berlin, Deutschland gehostet.',
-      'Die Rechtsgrundlage der Verarbeitung ist Art. 6 Abs. 1 lit. f DSGVO auf Grundlage berechtigter Interessen an Sicherheit und Effizienz.'
-    ]
-  },
-  {
-    title: '10. Erhebung von Zugriffsdaten',
-    paragraphs: [
-      'Der Verantwortliche erhebt Daten über jeden Zugriff auf den Server, auf dem sich dieser Dienst befindet, sogenannte Serverlogfiles.',
-      'Logfile-Informationen werden aus Sicherheitsgründen für die Dauer von maximal sieben Tagen gespeichert und danach gelöscht.'
-    ]
-  },
-  {
-    title: '11. Kontaktformular und Anfragen',
-    paragraphs: [
-      'Bei der Kontaktaufnahme mit dem Verantwortlichen per Kontaktformular oder E-Mail werden die Angaben des Nutzers gemäß Art. 6 Abs. 1 lit. b DSGVO zur Bearbeitung der Kontaktanfrage und deren Abwicklung verarbeitet.'
-    ]
-  },
-  {
-    title: '12. Einbindung von Diensten und Inhalten Dritter',
-    paragraphs: [
-      'Der Verantwortliche setzt innerhalb dieses Onlineangebotes Inhalts- oder Serviceangebote von Drittanbietern ein, um deren Inhalte und Services wie Videos oder Schriftarten einzubinden.',
-      'Dies setzt immer voraus, dass die Drittanbieter dieser Inhalte die IP-Adresse der Nutzer wahrnehmen können, da die Inhalte sonst nicht an den Browser gesendet werden können.'
     ]
   }
 ];
