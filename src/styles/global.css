@@ -136,14 +136,13 @@ li {
 .shell {
   width: min(calc(100% - 32px), var(--shell));
   margin: 0 auto;
-  padding-bottom: 40px;
 }
 
 .site-main {
   display: grid;
   gap: 56px;
   flex: 1 0 auto;
-  padding-bottom: 0;
+  padding-bottom: 40px;
 }
 
 .site-header {
@@ -633,7 +632,7 @@ li {
   --training-description-color: rgba(17, 32, 51, 0.68);
   --training-mark-size: clamp(7rem, 9vw, 8.6rem);
   --training-row-border: rgba(146, 72, 222, 0.2);
-  --training-ball-fill: linear-gradient(135deg, #2948d8 0%, #7018cc 52%, #f019a5 100%);
+  --training-ball-fill: linear-gradient(135deg, #2948d8 0%, #f019a5 52%, #7018cc 100%);
   grid-template-columns: var(--training-mark-size) minmax(0, 1fr) minmax(220px, max-content);
   grid-template-areas: 'mark headline schedule';
 }
@@ -643,7 +642,7 @@ li {
   --training-name-color: #92214a;
   --training-description-color: rgba(17, 32, 51, 0.68);
   --training-row-border: rgba(146, 33, 74, 0.16);
-  --training-ball-fill: linear-gradient(135deg, #92214a 0%, #5d2252 42%, #26245d 100%);
+  --training-ball-fill: linear-gradient(135deg, #92214a 0%, #5d2252 72%, #26245d 100%);
 }
 
 .training-row--green {
@@ -1130,8 +1129,8 @@ li {
 
 .team-page--lilac .team-page__art-item {
   --girl-grad-1: #2948d8;
-  --girl-grad-2: #7018cc;
-  --girl-grad-3: #f019a5;
+  --girl-grad-2: #f019a5;
+  --girl-grad-3: #7018cc;
 }
 
 .team-page--magenta .team-page__art-item {

@@ -45,7 +45,16 @@ export interface NavItem {
 }
 
 export const navigation: NavItem[] = [
-  { label: 'Teams', href: '/#teams' },
+  {
+    label: 'Teams',
+    href: '/#teams',
+    children: [
+      { label: 'Bambinis', href: '/teams/bambinis' },
+      { label: 'Nachwuchs', href: '/teams/nachwuchs' },
+      { label: 'Damen', href: '/teams/damen' },
+      { label: 'Mix', href: '/teams/mix' }
+    ]
+  },
   {
     label: 'Verein',
     href: '/#verein',
@@ -273,25 +282,3 @@ export const turniereMatches: TournamentMatch[] = [
 
 export const bvvBrandenburgligaFrauenUrl =
   'https://www.bvv-online.de/cms/home/halle/brandenburgliga/brandenburgliga_frauen.xhtml';
-
-export const teamPageImageAlt = 'Spielerin beim Volleyballtraining des Saarower VSV';
-
-export interface TeamPageContent {
-  slug: string;
-  name: string;
-  description: string;
-  schedule: string[];
-  contactName: string;
-  accent: 'gold' | 'lilac' | 'magenta' | 'green';
-}
-
-export const teamPages: TeamPageContent[] = [
-  {
-    slug: 'bambinis',
-    name: 'Bambinis',
-    description: 'Spiel und Spaß für Kids',
-    schedule: ['Fr. 15:30 - 16:15 Uhr'],
-    contactName: 'Name folgt',
-    accent: 'gold'
-  }
-];
