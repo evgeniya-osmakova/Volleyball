@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { spielberichte } from '../data/site';
+---
+
+<BaseLayout title="Spielberichte | Saarower VSV" description="Aktuelle Spielberichte des Saarower VSV">
+    <section class="home-canvas legal-page">
+        <div class="shell">
+            <div class="home-canvas__inner legal-page__inner">
+                <div class="hero-stage">
+                    <div class="subpage-back-row legal-content-page__back-row">
+                        <a class="subpage-back-link" href="/">← Zurück zur Startseite</a>
+                    </div>
+
+                    <div class="hero-stage__body legal-content-page__hero-copy">
+                        <h1>Spielberichte</h1>
+                    </div>
+                </div>
+
+                <section class="spielberichte-grid">
+                  {spielberichte.map((post) => (
+                          <article class="spielbericht-card">
+                              <a class="spielbericht-card__image-link" href={`/spielberichte/${post.slug}`}>
+                                  <img class="spielbericht-card__image" src={post.image} alt={post.imageAlt} />
+                              </a>
+
+                              <div class="spielbericht-card__content">
+                                  <h2 class="spielbericht-card__title">
+                                      <a href={`/spielberichte/${post.slug}`}>{post.title}</a>
+                                  </h2>
+
+                                  <div class="spielbericht-card__text">
+                                      <p>{post.excerpt}</p>
+                                  </div>
+
+                                  <a class="training-row__link spielbericht-card__link" href={`/spielberichte/${post.slug}`}>
+                                      Mehr lesen
+                                  </a>
+                              </div>
+                          </article>
+                  ))}
+                </section>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

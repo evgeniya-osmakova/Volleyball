@@ -1,4 +1,5 @@
 ---
+import SubpageHero from '../components/SubpageHero.astro';
 import { privacyLegacyHtml } from '../data/privacyLegacy';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -10,23 +11,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="home-canvas">
     <div class="shell">
       <div class="home-canvas__inner">
-        <section class="hero-stage privacy-page__hero">
-          <div class="hero-stage__body privacy-page__hero-copy">
-            <h1>Datenschutzerklärung</h1>
-          </div>
-        </section>
+        <SubpageHero
+          class="hero-stage legal-content-page__hero"
+          backHref="/"
+          backLabel="Zurück zur Startseite"
+          backRowClass="legal-content-page__back-row"
+          bodyClass="hero-stage__body legal-content-page__hero-copy"
+        >
+          <h1>Datenschutzerklärung</h1>
+        </SubpageHero>
 
-        <section class="privacy-page__section">
-          <div class="subpage-back-row privacy-page__back-row">
-            <a class="subpage-back-link" href="/">&larr; Zurück zur Startseite</a>
-          </div>
-
-          <article class="legal-card privacy-page__card">
-            <div class="privacy-page__content" set:html={privacyLegacyHtml}></div>
+        <section class="legal-content-page__section">
+          <article class="legal-card legal-content-page__card">
+            <div class="legal-content-page__content" set:html={privacyLegacyHtml}></div>
           </article>
 
-          <div class="privacy-page__actions">
-            <a class="button sponsors-section__cta privacy-page__back-link" href="/">
+          <div class="legal-content-page__actions">
+            <a class="button sponsors-section__cta legal-content-page__back-link" href="/">
               Zur Startseite
             </a>
           </div>

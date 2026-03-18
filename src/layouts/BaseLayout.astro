@@ -40,10 +40,22 @@ const socialIcons = {
             <ul class="site-nav site-nav--left">
               {
                 navigationLeft.map((item) => (
-                  <li>
+                  <li class:list={['site-nav__item', item.children && 'site-nav__item--has-children']}>
                     <a class="site-nav__link" href={item.href}>
                       {item.label}
                     </a>
+
+                    {item.children && (
+                      <ul class="site-nav__dropdown">
+                        {item.children.map((child) => (
+                          <li>
+                            <a class="site-nav__dropdown-link" href={child.href}>
+                              {child.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))
               }
@@ -60,17 +72,29 @@ const socialIcons = {
               <span class="site-brand__tagline">Der Saarower Volleyball Sportverein e.V.</span>
             </a>
 
-            <ul class="site-nav site-nav--right">
-              {
-                navigationRight.map((item) => (
-                  <li>
-                    <a class="site-nav__link" href={item.href}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
+              <ul class="site-nav site-nav--right">
+                {
+                  navigationRight.map((item) => (
+                    <li class:list={['site-nav__item', item.children && 'site-nav__item--has-children']}>
+                      <a class="site-nav__link" href={item.href}>
+                        {item.label}
+                      </a>
+
+                      {item.children && (
+                        <ul class="site-nav__dropdown">
+                          {item.children.map((child) => (
+                            <li>
+                              <a class="site-nav__dropdown-link" href={child.href}>
+                                {child.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))
+                }
+              </ul>
           </nav>
 
           <div class="site-header__mobile">
@@ -95,17 +119,27 @@ const socialIcons = {
                 </summary>
 
                 <nav class="site-mobile-menu__panel" aria-label="Mobile Hauptnavigation">
-                  <ul class="site-mobile-menu__list">
-                    {
-                      navigation.map((item) => (
-                        <li>
-                          <a class="site-mobile-menu__link" href={item.href}>
-                            {item.label}
-                          </a>
-                        </li>
-                      ))
-                    }
-                  </ul>
+                    <ul class="site-mobile-menu__list">
+                      {
+                        navigation.map((item) => (
+                                <>
+                                    <li>
+                                        <a class="site-mobile-menu__link" href={item.href}>
+                                          {item.label}
+                                        </a>
+                                    </li>
+
+                                  {item.children?.map((child) => (
+                                          <li>
+                                              <a class="site-mobile-menu__link site-mobile-menu__link--child" href={child.href}>
+                                                {child.label}
+                                              </a>
+                                          </li>
+                                  ))}
+                                </>
+                        ))
+                      }
+                    </ul>
                 </nav>
               </details>
             </div>

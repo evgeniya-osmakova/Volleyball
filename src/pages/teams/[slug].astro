@@ -1,4 +1,5 @@
 ---
+import SubpageHero from '../../components/SubpageHero.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { clubName, teamCards, type TeamCard } from '../../data/site';
 
@@ -19,15 +20,16 @@ const { team } = Astro.props as Props;
 <BaseLayout title={`${team.name} | Saarower VSV`} description={`${team.name} beim ${clubName}`}>
   <section class={`team-page team-page--${team.accent}`}>
     <div class="shell team-page__inner">
-      <div class="subpage-back-row">
-        <a class="subpage-back-link" href="/#teams">&larr; Zurück zu den Teams</a>
-      </div>
-
-      <div class="team-page__hero">
+      <SubpageHero
+        class="team-page__hero"
+        backHref="/#teams"
+        backLabel="Zurück zu den Teams"
+        bodyClass="team-page__hero-copy"
+      >
         <p class="section-tag">Team</p>
         <h1>{team.name}</h1>
         <p>{team.description}</p>
-      </div>
+      </SubpageHero>
 
       <div class="team-page__grid">
         <article class="team-page__card">

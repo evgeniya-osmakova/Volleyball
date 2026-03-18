@@ -4,11 +4,6 @@ export const facebookUrl = 'https://www.facebook.com/saarower.vsv/';
 export type SocialIcon = 'instagram' | 'facebook';
 export type FooterCardId = 'contact' | 'hall' | 'social' | 'impressum' | 'privacy';
 
-export interface NavItem {
-  label: string;
-  href: string;
-}
-
 export interface TeamCard {
   slug: string;
   name: string;
@@ -16,19 +11,6 @@ export interface TeamCard {
   schedule: string[];
   contactName: string;
   accent: 'gold' | 'lilac' | 'magenta' | 'green';
-}
-
-export interface FeatureCard {
-  id: string;
-  label: string;
-  title: string;
-  text: string;
-  image: string;
-  imageAlt: string;
-  accent: 'violet' | 'plum' | 'sunset' | 'blue';
-  actionLabel?: string;
-  actionHref?: string;
-  external?: boolean;
 }
 
 export interface Sponsor {
@@ -51,15 +33,39 @@ export interface FooterCard {
   items: FooterCardItem[];
 }
 
-export interface LegalSection {
-  title: string;
-  paragraphs: string[];
+export interface NavChildItem {
+  label: string;
+  href: string;
+}
+
+export interface NavItem {
+  label: string;
+  href: string;
+  children?: NavChildItem[];
 }
 
 export const navigation: NavItem[] = [
   { label: 'Teams', href: '/#teams' },
-  { label: 'Verein', href: '/#verein' },
-  { label: 'News', href: '/#news' },
+  {
+    label: 'Verein',
+    href: '/#verein',
+    children: [
+      { label: 'Über uns', href: '/ueber-uns' },
+      { label: 'Vereinsgeschichte', href: '/vereinsgeschichte' },
+      { label: 'Vorstand', href: '/vorstand' },
+      { label: 'Satzung', href: '/satzung' },
+      { label: 'Beitragsordnung', href: '/beitragsordnung' }
+    ]
+  },
+  {
+    label: 'News',
+    href: '/#news',
+    children: [
+      { label: 'Spielberichte', href: '/spielberichte' },
+      { label: 'Turniere', href: '/turniere' },
+      { label: 'Veranstaltungen', href: '/veranstaltungen' }
+    ]
+  },
   { label: 'Sponsoren', href: '/#sponsoren' },
   { label: 'Kontakt', href: '/#kontakt' }
 ];
@@ -156,50 +162,6 @@ export const sponsors: Sponsor[] = [
   }
 ];
 
-export const featureCards: FeatureCard[] = [
-  {
-    id: 'news',
-    label: 'News',
-    title: 'Folge uns auch auf INSTAGRAMM =>',
-    text: 'Aktuelle Einblicke, Spieltage und Vereinsmomente finden sich auf unserem Instagram-Kanal.',
-    image: '/images/home/hero-team-2.jpg',
-    imageAlt: 'Spielerinnen des Saarower VSV nach einem Heimspieltag',
-    accent: 'violet',
-    actionLabel: 'Instagram öffnen',
-    actionHref: instagramUrl,
-    external: true
-  },
-  {
-    id: 'sponsoren',
-    label: 'Sponsoren',
-    title: 'Der VSV bedankt sich bei der Sparkasse Oder-Spree für ihre Unterstützung',
-    text: 'Unterstützung aus der Region trägt unseren Vereinsalltag, Spielbetrieb und Nachwuchs.',
-    image: '/images/teams/damen/meisterpokal.jpg',
-    imageAlt: 'Mannschaft des Saarower VSV mit Meisterpokal',
-    accent: 'plum'
-  },
-  {
-    id: 'verein-teaser',
-    label: 'Verein',
-    title: 'Auf diesen Seiten stellt sich der Saarower Volleyball Sportverein e.V. kurz vor.',
-    text: 'Seit 1998 gehört Volleyball in Bad Saarow zum festen Vereinsleben.',
-    image: '/images/teams/damen/team-2024.jpg',
-    imageAlt: 'Teamfoto der Damenmannschaft des Saarower VSV',
-    accent: 'sunset'
-  },
-  {
-    id: 'kontakt-teaser',
-    label: 'Kontakt',
-    title: 'So findet Ihr uns',
-    text: 'Pieskower Straße 31, 15526 Bad Saarow',
-    image: '/images/teams/damen/potsdam-1.jpg',
-    imageAlt: 'Nachwuchsteam des Saarower VSV bei einem Turnier',
-    accent: 'blue',
-    actionLabel: 'Zum Kontakt',
-    actionHref: '/#kontakt'
-  }
-];
-
 export const footerCards: FooterCard[] = [
   {
     id: 'contact',
@@ -242,27 +204,94 @@ export const footerCards: FooterCard[] = [
   }
 ];
 
-export const impressumSections: LegalSection[] = [
+
+export interface Spielbericht {
+  slug: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  content: string[];
+}
+
+export const spielberichte: Spielbericht[] = [
   {
-    title: 'Angaben gemäß § 5 TMG',
-    paragraphs: ['Saarower Volleyball Sportverein e.V.', 'Saarower Chaussee 21', '15517 Fürstenwalde']
-  },
-  {
-    title: 'Vertreten durch',
-    paragraphs: ['Torsten Ahlert']
-  },
-  {
-    title: 'Kontakt',
-    paragraphs: ['Telefon: +49 3361 7699800', 'E-Mail: fam.ahlert@t-online.de']
-  },
-  {
-    title: 'Steuernummer',
-    paragraphs: ['061/143/01661']
-  },
-  {
-    title: 'Streitbeilegung',
-    paragraphs: [
-      'Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.'
+    slug: 'auswartsspieltag-sieg',
+    title: 'Auswärtsspieltag, Sieg!',
+    excerpt:
+      'Wir holen 4 Punkte mit nach Bad Saarow und gewinnen zwei packende Fünf-Satz-Spiele gegen USV Potsdam IV und KSC Asahi Spremberg.',
+    image: '/images/news/auswartsspieltag-sieg.png',
+    imageAlt: 'Damenmannschaft des Saarower VSV nach dem Auswärtsspieltag',
+    content: [
+      '🏐💪🏼 Auswärtsspieltag, Sieg!',
+      'Wir belohnen uns heute mit starkem Durchhaltevermögen und Willensstärke und bringen 4 Punkte mit nach Bad Saarow.',
+      'In zwei packenden Fünf-Satz-Spielen sichern wir uns jeweils den ersten Satz, geben die weiteren zwei Sätze ab und drehen dann Satz 4 und 5 und holen uns die Siege gegen den USV Potsdam IV und den KSC Asahi Spremberg.',
+      'Das Saisonende nähert sich und der letzte Spieltag für uns steht am 22.03.2026 im Kalender. Bis dahin!'
     ]
+  },
+  {
+    slug: 'mila-Supercup',
+    title: 'JUNIORAS U11 – Mila-Supercup',
+    excerpt:
+      'Wir holen 4 Punkte mit nach Bad Saarow und gewinnen zwei packende Fünf-Satz-Spiele gegen USV Potsdam IV und KSC Asahi Spremberg.',
+    image: '/images/news/mila-Supercup.png',
+    imageAlt: 'JUNIORAS U11 – Mila-Supercup',
+    content: [
+      'Volleyball Spielbetrieb – JUNIORAS U11 – Mila-Supercup (A-Kategorie) in Brandenburg a.d.Havel 2026_03_01',
+      'Endlich wieder ein U11-Turnier! Unsere Jüngsten freuen sich auf Turniere in ihrer Altersgruppe der 9-Jährigen (bzw. in diesem Jahr 10 Jahre alt werdenden Mädchen und Jungen).',
+      'Die Reise führte uns in die Stadt Brandenburg, wo sich Mädchen und Jungen an 5 Netzen in A, B und C Kategorie mit landesweiter Einladung vergleichen konnten. Mit zahlreichen Teams waren die Volleyball Landesstützpunkte Potsdam und Zepernick vertreten.',
+      'Kurz um – unsere Mädchen haben super gespielt und keinen Satz abgegeben. Der Saarower VSV ist sehr stolz auf euch!',
+      'Direkt nach dem Turnier sind wir noch rechtzeitig zur Siegerehrung eines U14 Jugendturnieres in Potsdam gefahren – hier konnten die 3 Jahre älteren Jungs und Mädchen bestaunt werden, die gerade ein Turnier mit bundesweiter Beteiligung und einer Gastmannschaft auf Warschau absolvierten. (Mit dabei auf Platz 3 jemand aus Fürstenwalde :o)',
+    ]
+  }
+];
+
+export interface TournamentMatch {
+  date: string;
+  time: string;
+  team1: string;
+  team2: string;
+  location: string;
+}
+
+export const turniereMatches: TournamentMatch[] = [
+  {
+    date: '22.03.2026',
+    time: '11:00',
+    team1: 'Saarower VSV',
+    team2: 'SC Potsdam IV',
+    location: 'TH Dabendorf'
+  },
+  {
+    date: '22.03.2026',
+    time: '11:00',
+    team1: 'MSV Zossen 07',
+    team2: 'Saarower VSV',
+    location: 'TH Dabendorf'
+  }
+];
+
+export const bvvBrandenburgligaFrauenUrl =
+  'https://www.bvv-online.de/cms/home/halle/brandenburgliga/brandenburgliga_frauen.xhtml';
+
+export const teamPageImageAlt = 'Spielerin beim Volleyballtraining des Saarower VSV';
+
+export interface TeamPageContent {
+  slug: string;
+  name: string;
+  description: string;
+  schedule: string[];
+  contactName: string;
+  accent: 'gold' | 'lilac' | 'magenta' | 'green';
+}
+
+export const teamPages: TeamPageContent[] = [
+  {
+    slug: 'bambinis',
+    name: 'Bambinis',
+    description: 'Spiel und Spaß für Kids',
+    schedule: ['Fr. 15:30 - 16:15 Uhr'],
+    contactName: 'Name folgt',
+    accent: 'gold'
   }
 ];

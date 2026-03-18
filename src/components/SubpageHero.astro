@@ -1,0 +1,27 @@
+---
+interface Props {
+  backHref: string;
+  backLabel: string;
+  backRowClass?: string;
+  bodyClass?: string;
+  class?: string;
+}
+
+const {
+  backHref,
+  backLabel,
+  backRowClass,
+  bodyClass,
+  class: className
+} = Astro.props as Props;
+---
+
+<section class={className}>
+  <div class:list={['subpage-back-row', backRowClass]}>
+    <a class="subpage-back-link" href={backHref}>&larr; {backLabel}</a>
+  </div>
+
+  <div class={bodyClass}>
+    <slot />
+  </div>
+</section>

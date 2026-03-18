@@ -1,30 +1,34 @@
 ---
-import { clubName, impressumSections } from '../data/site';
+import SubpageHero from '../components/SubpageHero.astro';
+import { impressumLegacyHtml } from '../data/impressumLegacy';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Impressum | Saarower VSV" description={clubName}>
-  <section class="legal-page">
-    <div class="shell legal-page__inner">
-      <div class="subpage-back-row">
-        <a class="subpage-back-link" href="/">&larr; Zurück zur Startseite</a>
-      </div>
+<BaseLayout title="Impressum | Saarower VSV" description="Impressum des Saarower Volleyball Sportverein e.V.">
+  <section class="home-canvas">
+    <div class="shell">
+      <div class="home-canvas__inner">
+        <SubpageHero
+          class="hero-stage legal-content-page__hero"
+          backHref="/"
+          backLabel="Zurück zur Startseite"
+          backRowClass="legal-content-page__back-row"
+          bodyClass="hero-stage__body legal-content-page__hero-copy"
+        >
+          <h1>Impressum</h1>
+        </SubpageHero>
 
-      <div class="legal-intro">
-        <p class="section-tag">Impressum</p>
-        <h1>Impressum</h1>
-        <p>{clubName}</p>
-      </div>
+        <section class="legal-content-page__section">
+          <article class="legal-card legal-content-page__card">
+            <div class="legal-content-page__content" set:html={impressumLegacyHtml}></div>
+          </article>
 
-      <div class="legal-grid">
-        {
-          impressumSections.map((section) => (
-            <article class="legal-card">
-              <h2>{section.title}</h2>
-              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
-            </article>
-          ))
-        }
+          <div class="legal-content-page__actions">
+            <a class="button sponsors-section__cta legal-content-page__back-link" href="/">
+              Zur Startseite
+            </a>
+          </div>
+        </section>
       </div>
     </div>
   </section>

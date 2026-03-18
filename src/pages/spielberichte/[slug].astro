@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { spielberichte, type Spielbericht } from '../../data/site';
+
+export function getStaticPaths() {
+  return spielberichte.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+interface Props {
+  post: Spielbericht;
+}
+
+const { post } = Astro.props as Props;
+---
+
+<BaseLayout title={`${post.title} | Saarower VSV`} description={post.excerpt}>
+    <section class="home-canvas legal-page">
+        <div class="shell">
+            <div class="home-canvas__inner legal-page__inner">
+                <div class="hero-stage">
+                    <div class="subpage-back-row legal-content-page__back-row">
+                        <a class="subpage-back-link" href="/spielberichte">← Zurück zu den Spielberichten</a>
+                    </div>
+
+                    <div class="hero-stage__body legal-content-page__hero-copy">
+                        <h1>{post.title}</h1>
+                    </div>
+                </div>
+
+                <article class="spielbericht-card spielbericht-card--single">
+                    <img class="spielbericht-card__image" src={post.image} alt={post.imageAlt} />
+
+                    <div class="spielbericht-card__content">
+                        <div class="legal-content-page__content spielbericht-card__body">
+                          {post.content.map((paragraph) => <p>{paragraph}</p>)}
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</BaseLayout>
