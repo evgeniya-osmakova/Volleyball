@@ -57,7 +57,7 @@ export const navigation: NavItem[] = [
   },
   {
     label: 'Verein',
-    href: '/#verein',
+    href: '/ueber-uns',
     children: [
       { label: 'Über uns', href: '/ueber-uns' },
       { label: 'Vereinsgeschichte', href: '/vereinsgeschichte' },
@@ -68,7 +68,7 @@ export const navigation: NavItem[] = [
   },
   {
     label: 'News',
-    href: '/#news',
+    href: '/spielberichte',
     children: [
       { label: 'Spielberichte', href: '/spielberichte' },
       { label: 'Turniere', href: '/turniere' },
