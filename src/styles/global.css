@@ -1046,7 +1046,7 @@ li {
 }
 
 .site-footer {
-  padding: 58px 0 62px;
+  padding: 58px 60px 40px;
   border-top: 1px solid rgba(17, 32, 51, 0.08);
   flex-shrink: 0;
   background:
@@ -1315,6 +1315,11 @@ li {
 }
 
 @media (max-width: 1180px) {
+
+  .site-footer {
+    padding: 35px 35px 0;
+  }
+
   .site-header__nav {
     display: none;
   }
@@ -1427,7 +1432,7 @@ li {
   }
 
   .site-footer {
-    padding: 34px 0 36px;
+    padding: 35px;
   }
 
   .legal-intro,
