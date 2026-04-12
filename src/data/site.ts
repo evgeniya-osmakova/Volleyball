@@ -3,9 +3,10 @@ export const instagramUrl = 'https://www.instagram.com/saarower_vsv/';
 export const facebookUrl = 'https://www.facebook.com/saarower.vsv/';
 export type SocialIcon = 'instagram' | 'facebook';
 export type FooterCardId = 'contact' | 'hall' | 'social' | 'impressum' | 'privacy';
+export type TeamSlug = 'bambinis' | 'nachwuchs' | 'damen' | 'mix';
 
 export interface TeamCard {
-  slug: string;
+  slug: TeamSlug;
   name: string;
   description: string;
   schedule: string[];
@@ -220,10 +221,26 @@ export interface Spielbericht {
   excerpt: string;
   image: string;
   imageAlt: string;
+  teamSlugs: TeamSlug[];
   content: string[];
 }
 
 export const spielberichte: Spielbericht[] = [
+  {
+    slug: 'Auswärtsspieltag',
+    title: 'Auswärtsspieltag, Sieg!',
+    excerpt:
+      'Letzter Spieltag und Saisonende. Am vergangenen Sonntag haben wir nochmal vollen Spaß mit auf das Spielfeld gebracht.',
+    image: '/images/news/Auswartsspieltag.png',
+    imageAlt: 'Auswärtsspieltag, Sieg!',
+    teamSlugs: ['damen'],
+    content: [
+      '🏐💪🏼 Auswärtsspieltag, Sieg!',
+      'Letzter Spieltag und Saisonende. Am vergangenen Sonntag haben wir nochmal vollen Spaß mit auf das Spielfeld gebracht.',
+      'Im spannenden Fünf-Satz Spiel gegen die Mädels vom SV Potsdam IV zogen wir zwar den kürzeren, konnten aber mit einem 3:0 die Gastgeberinnen aus Zossen ärgern. Damit verabschieden wir uns aus der Saison 2025/2026 mit Platz 4 in der Tabelle und sind verdammt stolz, eine weitere Saison gerockt zu und vor allem in der Rückrunde nochmal starke Spiele geliefert zu haben. ',
+      'Wir sagen Danke an alle Unterstützer und Fans!'
+    ]
+  },
   {
     slug: 'auswartsspieltag-sieg',
     title: 'Auswärtsspieltag, Sieg!',
@@ -231,20 +248,22 @@ export const spielberichte: Spielbericht[] = [
       'Wir holen 4 Punkte mit nach Bad Saarow und gewinnen zwei packende Fünf-Satz-Spiele gegen USV Potsdam IV und KSC Asahi Spremberg.',
     image: '/images/news/auswartsspieltag-sieg.png',
     imageAlt: 'Damenmannschaft des Saarower VSV nach dem Auswärtsspieltag',
+    teamSlugs: ['damen'],
     content: [
       '🏐💪🏼 Auswärtsspieltag, Sieg!',
       'Wir belohnen uns heute mit starkem Durchhaltevermögen und Willensstärke und bringen 4 Punkte mit nach Bad Saarow.',
       'In zwei packenden Fünf-Satz-Spielen sichern wir uns jeweils den ersten Satz, geben die weiteren zwei Sätze ab und drehen dann Satz 4 und 5 und holen uns die Siege gegen den USV Potsdam IV und den KSC Asahi Spremberg.',
       'Das Saisonende nähert sich und der letzte Spieltag für uns steht am 22.03.2026 im Kalender. Bis dahin!'
-    ]
+    ],
   },
   {
     slug: 'mila-Supercup',
     title: 'JUNIORAS U11 – Mila-Supercup',
     excerpt:
-      'Wir holen 4 Punkte mit nach Bad Saarow und gewinnen zwei packende Fünf-Satz-Spiele gegen USV Potsdam IV und KSC Asahi Spremberg.',
+      'Kurz um – unsere Mädchen haben super gespielt und keinen Satz abgegeben. Der Saarower VSV ist sehr stolz auf euch!',
     image: '/images/news/mila-Supercup.png',
     imageAlt: 'JUNIORAS U11 – Mila-Supercup',
+    teamSlugs: ['nachwuchs'],
     content: [
       'Volleyball Spielbetrieb – JUNIORAS U11 – Mila-Supercup (A-Kategorie) in Brandenburg a.d.Havel 2026_03_01',
       'Endlich wieder ein U11-Turnier! Unsere Jüngsten freuen sich auf Turniere in ihrer Altersgruppe der 9-Jährigen (bzw. in diesem Jahr 10 Jahre alt werdenden Mädchen und Jungen).',
@@ -252,8 +271,35 @@ export const spielberichte: Spielbericht[] = [
       'Kurz um – unsere Mädchen haben super gespielt und keinen Satz abgegeben. Der Saarower VSV ist sehr stolz auf euch!',
       'Direkt nach dem Turnier sind wir noch rechtzeitig zur Siegerehrung eines U14 Jugendturnieres in Potsdam gefahren – hier konnten die 3 Jahre älteren Jungs und Mädchen bestaunt werden, die gerade ein Turnier mit bundesweiter Beteiligung und einer Gastmannschaft auf Warschau absolvierten. (Mit dabei auf Platz 3 jemand aus Fürstenwalde :o)',
     ]
-  }
+  },
+  {
+    slug: 'Bambinis-Fasching',
+    title: 'Bambinis Fasching',
+    excerpt:
+      'Gestern haben unsere Bambinis Fasching gefeiert. 🎊',
+    image: '/images/news/Bambinis-Fasching.png',
+    imageAlt: 'Bambinis Fasching',
+    teamSlugs: ['bambinis'],
+    content: [
+      'Gestern haben unsere Bambinis Fasching gefeiert. 🎊\n',
+      'Wir haben ein Training zusammen mit den Eltern geplant und die Kids haben sich, in Form von Staffelspielen, austoben können.🎉 Die Eltern dürfen heut einen Muskelkater genießen.😉\n' +
+      'Vielen lieben Dank an alle Eltern, die mit gemacht haben oder tatkräftig zugeschaut haben.😃\n',
+      'Unsere Bambinis starteten im Juni 2025, eine hohe Nachfrage bestätigte dann, dass wir den richtigen Schritt gegangen sind.\n' +
+      '\n' +
+      'Es fehlt uns jedoch an ehrenamtlichen Trainern, wie überall.\n' +
+      'So könnten wir unsere Warteliste etwas minimieren.😁\n',
+      '❗️Wer also einmal wöchentlich mithelfen möchte, kann sich gern bei uns melden. 😃❗️',
+    ]
+  },
 ];
+
+export function getTeamBySlug(teamSlug: TeamSlug) {
+  return teamCards.find((team) => team.slug === teamSlug);
+}
+
+export function getSpielberichteByTeam(teamSlug: TeamSlug) {
+  return spielberichte.filter((post) => post.teamSlugs.includes(teamSlug));
+}
 
 export interface TournamentMatch {
   date: string;

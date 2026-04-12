@@ -1174,76 +1174,19 @@ li {
   z-index: 2;
 }
 
-.team-page__art {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas:
-    "play jump"
-    "content content"
-    "defense defense";
-  gap: 28px 20px;
-  align-items: start;
-  padding: 42px 28px 28px;
-  min-height: 720px;
-}
-
-.team-page__art-item {
-  align-self: start;
-}
-
-.team-page__art-item svg {
-  display: block;
-  width: 100%;
-  height: 150px;
-}
-
-.team-page--gold .team-page__art-item {
-  --girl-grad-1: #961243;
-  --girl-grad-2: #eb6d30;
-  --girl-grad-3: #f7d545;
-}
-
-.team-page--lilac .team-page__art-item {
-  --girl-grad-1: #2948d8;
-  --girl-grad-2: #f019a5;
-  --girl-grad-3: #7018cc;
-}
-
-.team-page--magenta .team-page__art-item {
-  --girl-grad-1: #92214a;
-  --girl-grad-2: #5d2252;
-  --girl-grad-3: #26245d;
-}
-
-.team-page--green .team-page__art-item {
-  --girl-grad-1: #2f6f2d;
-  --girl-grad-2: #4aa52c;
-  --girl-grad-3: #a7dc45;
-}
-
-.team-page__art-item--play {
-  grid-area: play;
-  width: min(100%, 320px);
-}
-
-.team-page__art-item--jump {
-  grid-area: jump;
-  width: min(100%, 150px);
-  justify-self: end;
-}
-
-.team-page__art-item--defense {
-  grid-area: defense;
-  width: min(100%, 180px);
-}
-
 .team-page__content {
   grid-area: content;
   display: grid;
   align-content: center;
   justify-content: center;
   gap: 34px;
-  padding-top: 8px;
+  padding: 60px 0;
+}
+
+.team-page__info {
+  display: grid;
+  gap: 100px;
+  grid-auto-flow: column;
 }
 
 .team-page__section {
@@ -1256,6 +1199,56 @@ li {
   color: var(--text);
   font-size: clamp(1.04rem, 1.2vw, 1.16rem);
   line-height: 1.7;
+}
+
+.team-page__title {
+  color: var(--navy);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.team-page__section-warning {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 22px 24px 22px 26px;
+  background: linear-gradient(135deg, rgba(157, 39, 80, 0.1), rgba(235, 109, 48, 0.14));
+  border: 1px solid rgba(157, 39, 80, 0.14);
+  border-left: 6px solid #9d2750;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(13, 34, 58, 0.08);
+}
+
+.team-page__section-warning::before {
+  content: '!';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(157, 39, 80, 0.12);
+  color: #9d2750;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.team-page__section-warning .team-page__card-label {
+  color: #6f1c3c;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+}
+
+.team-page__section-warning p:last-child {
+  margin: 0;
+  color: var(--navy);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  font-weight: 500;
+  max-width: 52rem;
 }
 
 .team-page__card-label {
@@ -1285,44 +1278,39 @@ li {
   font-weight: 600;
 }
 
+.team-page__news {
+  display: grid;
+  gap: 24px;
+  padding: 0 28px 28px;
+}
+
 @media (max-width: 900px) {
   .team-page__hero-card {
     grid-template-columns: 1fr;
   }
 
-  .team-page__art {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "play"
-      "content"
-      "defense";
-    gap: 20px 16px;
-    min-height: 0;
-    padding: 34px 20px 24px;
-    justify-items: center;
-  }
-
-  .team-page__art-item--play {
-    width: min(100%, 220px);
-  }
-
-  .team-page__art-item--jump {
-    width: min(100%, 110px);
-  }
-
-  .team-page__art-item--defense {
-    width: min(100%, 130px);
-  }
-
   .team-page__content {
     gap: 24px;
     max-width: none;
-    padding-top: 0;
+    padding: 30px 0;
     text-align: center;
   }
 
-  .team-page__art-item--jump {
-    display: none;
+  .team-page__info {
+    gap: 20px;
+    grid-auto-flow: row;
+  }
+
+  .team-page__schedule {
+    list-style: none;
+  }
+
+  .team-page__news-header h2 {
+    max-width: none;
+  }
+
+  .team-page__news {
+    padding: 0 20px 24px;
   }
 }
 

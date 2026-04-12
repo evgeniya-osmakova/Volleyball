@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { teamCards } from '../../data/site';
+import SpielberichteList from '../../components/SpielberichteList.astro';
+import { getSpielberichteByTeam, getTeamBySlug } from '../../data/site';
 import TeamGirl3Svg from '../../components/svg/TeamGirl3Svg.astro';
 import TeamGirl2Svg from '../../components/svg/TeamGirl2Svg.astro';
 import PlaySvg from '../../components/svg/PlaySvg.astro';
 
-const team = teamCards.find((item) => item.slug === 'nachwuchs');
+const team = getTeamBySlug('nachwuchs');
+const teamNews = getSpielberichteByTeam('nachwuchs');
 
 if (!team) {
   throw new Error('Nachwuchs page data not found');
@@ -18,7 +20,7 @@ if (!team) {
       <div class="team-page__inner">
         <div class="hero-stage">
           <div class="subpage-back-row legal-content-page__back-row">
-            <a class="subpage-back-link" href="/#teams">← Zurück zu den Teams</a>
+            <a class="subpage-back-link" href="/#teams">← Zu den Teams</a>
           </div>
 
           <div class="hero-stage__body legal-content-page__hero-copy">
@@ -27,38 +29,27 @@ if (!team) {
         </div>
 
         <article class="team-page__hero-card">
-          <div class="team-page__art">
-            <div class="team-page__art-item team-page__art-item--play">
-              <PlaySvg />
-            </div>
-
-            <div class="team-page__art-item team-page__art-item--jump">
-              <TeamGirl2Svg />
-            </div>
-
             <div class="team-page__content">
-              <div class="team-page__section">
-                <p class="team-page__card-label">Beschreibung</p>
-                <p>{team.description}</p>
-              </div>
+                <p class="team-page__title">{team.description}</p>
 
-              <div class="team-page__section">
-                <p class="team-page__card-label">Trainingszeiten</p>
-                <ul class="team-page__schedule">
-                  {team.schedule.map((entry) => <li>{entry}</li>)}
-                </ul>
-              </div>
+                <div class="team-page__info">
+                    <div class="team-page__section">
+                        <p class="team-page__card-label">Trainingszeiten</p>
+                        <ul class="team-page__schedule">
+                          {team.schedule.map((entry) => <li>{entry}</li>)}
+                        </ul>
+                    </div>
 
-              <div class="team-page__section">
-                <p class="team-page__card-label">Trainer und Ansprechpartner</p>
-                <p class="team-page__contact-name">{team.contactName}</p>
-              </div>
+                    <div class="team-page__section">
+                        <p class="team-page__card-label">Trainer und Ansprechpartner</p>
+                        <p class="team-page__contact-name">{team.contactName}</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="team-page__art-item team-page__art-item--defense">
-              <TeamGirl3Svg />
-            </div>
-          </div>
+          <section class="team-page__news">
+            <SpielberichteList posts={teamNews} />
+          </section>
         </article>
       </div>
     </div>

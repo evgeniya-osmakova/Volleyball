@@ -1,0 +1,40 @@
+---
+import type { Spielbericht } from '../data/site';
+
+interface Props {
+  posts: Spielbericht[];
+  emptyText?: string;
+}
+
+const { posts } = Astro.props as Props;
+---
+
+{
+  posts.length > 0 ? (
+    <section class="spielberichte-grid">
+      {posts.map((post) => (
+        <article class="spielbericht-card">
+          <a class="spielbericht-card__image-link" href={`/spielberichte/${post.slug}`}>
+            <img class="spielbericht-card__image" src={post.image} alt={post.imageAlt} />
+          </a>
+
+          <div class="spielbericht-card__content">
+            <h2 class="spielbericht-card__title">
+              <a href={`/spielberichte/${post.slug}`}>{post.title}</a>
+            </h2>
+
+            <div class="spielbericht-card__text">
+              <p>{post.excerpt}</p>
+            </div>
+
+            <a class="training-row__link spielbericht-card__link" href={`/spielberichte/${post.slug}`}>
+              Mehr lesen
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+  ) : (
+    null
+  )
+}
