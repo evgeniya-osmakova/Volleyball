@@ -14,7 +14,7 @@ import { clubName, sponsors, teamCards } from '../data/site';
 
           <div class="hero-stage__body" id="probetraining">
             <h1>Willkommen beim Volleyballverein</h1>
-            <button class="button hero-stage__cta" type="button">Probetraining</button>
+            <a class="button hero-stage__cta" href="#kontakt">Probetraining</a>
           </div>
         </section>
 
@@ -33,7 +33,7 @@ import { clubName, sponsors, teamCards } from '../data/site';
                     <p class="training-row__description">{team.description}</p>
                     <div class="training-row__contact">
                       <p class="training-row__contact-label">
-                        <span>Trainer / Ansprechpartner</span>
+                        <span>{`${team.name === 'mix' || team.name === 'damen' ? 'Ansprechpartner' : 'Trainer und Ansprechpartner'}`}</span>
                       </p>
                       <p class="training-row__contact-name">{team.contactName}</p>
                     </div>
@@ -84,7 +84,7 @@ import { clubName, sponsors, teamCards } from '../data/site';
           </div>
 
           <div class="sponsors-section__actions">
-            <a class="button sponsors-section__cta" href="#kontakt">Sponsor werden!</a>
+            <a class="button sponsors-section__cta" href="/sponsoren">Sponsor werden!</a>
           </div>
         </section>
 
@@ -129,8 +129,61 @@ import { clubName, sponsors, teamCards } from '../data/site';
                           <div class="contact-info__item">
                               <p class="contact-info__label">E-Mail</p>
                               <p class="contact-info__text">
-                                  <a href="mailto:fam.ahlert@t-online.de">fam.ahlert@t-online.de</a>
+                                  <a href="mailto:saarowervsv@gmail.com">saarowervsv@gmail.com</a>
                               </p>
+                          </div>
+
+                          <div class="contact-info__item contact-info__item--form">
+                              <p class="contact-info__label">Kontaktformular</p>
+                              <form
+                                      class="contact-form wpcf7-form"
+                                      method="post"
+                                      action="#kontakt"
+                                      onsubmit="return false;"
+                              >
+                                  <label class="contact-form__field">
+                                      <span class="contact-form__label">Deine E-Mail-Adresse</span>
+                                      <input
+                                              class="contact-form__control wpcf7-form-control wpcf7-email"
+                                              type="email"
+                                              name="your-email"
+                                              autocomplete="email"
+                                      />
+                                  </label>
+
+                                  <label class="contact-form__field">
+                                      <span class="contact-form__label">Dein Name</span>
+                                      <input
+                                              class="contact-form__control wpcf7-form-control wpcf7-text"
+                                              type="text"
+                                              name="your-name"
+                                              autocomplete="name"
+                                      />
+                                  </label>
+
+                                  <label class="contact-form__field">
+                                      <span class="contact-form__label">Betreff</span>
+                                      <input
+                                              class="contact-form__control wpcf7-form-control wpcf7-text"
+                                              type="text"
+                                              name="your-subject"
+                                              autocomplete="off"
+                                      />
+                                  </label>
+
+                                  <label class="contact-form__field">
+                                      <span class="contact-form__label">Deine Nachricht</span>
+                                      <textarea
+                                              class="contact-form__control contact-form__control--textarea wpcf7-form-control wpcf7-textarea"
+                                              name="your-message"
+                                              rows="5"
+                                      ></textarea>
+                                  </label>
+
+                                  <button class="button contact-form__submit wpcf7-form-control wpcf7-submit" type="submit">
+                                      Nachricht senden
+                                  </button>
+                              </form>
                           </div>
                       </div>
                   </article>

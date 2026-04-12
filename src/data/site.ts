@@ -75,7 +75,7 @@ export const navigation: NavItem[] = [
       { label: 'Veranstaltungen', href: '/veranstaltungen' }
     ]
   },
-  { label: 'Sponsoren', href: '/#sponsoren' },
+  { label: 'Sponsoren', href: '/sponsoren' },
   { label: 'Kontakt', href: '/#kontakt' }
 ];
 
@@ -83,9 +83,9 @@ export const teamCards: TeamCard[] = [
   {
     slug: 'bambinis',
     name: 'Bambinis',
-    description: 'Spiel und Spaß für Kids',
+    description: 'Ballgefühl, Körperkoordination und Grundlagen des Volleyballs',
     schedule: ['Fr. 15:30 - 16:15 Uhr'],
-    contactName: 'Name folgt',
+    contactName: 'Hanna Borchert und Nina Hesse',
     accent: 'gold'
   },
   {
@@ -93,7 +93,7 @@ export const teamCards: TeamCard[] = [
     name: 'Nachwuchs',
     description: 'Nachwuchs weibl. U12 bis U16 Volleyball',
     schedule: ['Fr. 16:00 - 18:00 Uhr'],
-    contactName: 'Name folgt',
+    contactName: 'René Gesch, Bettina Sichting, Anne Krengel und Torsten Ahlert',
     accent: 'lilac'
   },
   {
@@ -101,7 +101,7 @@ export const teamCards: TeamCard[] = [
     name: 'Damen',
     description: '1. Damenmannschaft',
     schedule: ['Di. 19:00 - 21:00 Uhr', 'Fr. 18:00 - 20:00 Uhr'],
-    contactName: 'Name folgt',
+    contactName: 'Anne Krengel',
     accent: 'magenta'
   },
   {
@@ -109,7 +109,7 @@ export const teamCards: TeamCard[] = [
     name: 'Mix',
     description: 'Mixed',
     schedule: ['Mi. 19:00 - 21:00 Uhr'],
-    contactName: 'Name folgt',
+    contactName: 'Torsten Ahlert und Bettina Sichting',
     accent: 'green'
   }
 ];
@@ -181,8 +181,8 @@ export const footerCards: FooterCard[] = [
         href: 'tel:+4933617699800'
       },
       {
-        label: 'fam.ahlert@t-online.de',
-        href: 'mailto:fam.ahlert@t-online.de'
+        label: 'saarowervsv@gmail.com',
+        href: 'mailto:saarowervsv@gmail.com'
       }
     ]
   },
